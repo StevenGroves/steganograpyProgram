@@ -1,7 +1,31 @@
 from Tkinter import *
+import tkFileDialog
+from PIL import Image, ImageOps
 
 def nextFrame(frame):
 	frame.tkraise()
+
+def coverimage():
+	filename = tkFileDialog.askopenfilename()
+	return filename
+	
+
+def secretimage():
+	filename = tkFileDialog.askopenfilename()
+	return filename
+
+def hideImage(s = 4):
+	data = Image.open(coverimage())
+	key = ImageOps.autocontrast(Image.open(secretimage()).resize(data.size))
+	for x in range(data.size[0]):
+		for y in range(data.size[1]):
+			p = data.getpixel((x,y))
+			q = key.getpixel((x,y))
+			red = p[0] - (p[0] % s) + (s * q[0] / 255)
+			green = p[1] - (p[1] % s) + (s * q[1] / 255)
+			blue = p[2] - (p[2] % s) + (s * q[2] / 255)
+			data.putpixel((x,y), (red, green, blue))
+	data.save("hidden.png")
 
 root = Tk()
 
@@ -12,9 +36,9 @@ root.geometry('{}x{}'.format(425, 300))
 f1 = Frame(root)
 f2 = Frame(root)
 f3 = Frame(root)
-#f4 = Frame(root)
+f4 = Frame(root)
 
-for frame in (f1, f2, f3):
+for frame in (f1, f2, f3, f4):
 	frame.grid(row = 0, column = 0, sticky = 'news')
 
 ##############################################################
@@ -67,7 +91,7 @@ encryptPhotoButton = Button(f2,
 						bg = 'turquoise4',
 						fg = 'azure',
 						width = 12,
-						command = lambda:nextFrame(f1))
+						command = lambda:nextFrame(f4))
 encryptPhotoButton.pack(padx = 10, side = LEFT)
 
 #return to main menu button
@@ -122,6 +146,23 @@ mainMenuButton = Button(f3,
 						width = 8,
 						command = lambda:nextFrame(f1))
 mainMenuButton.pack(padx = 10, side = LEFT)
+#####################################################################
+#f4 - Encrypt picture from picture
+Label(f4,
+		text = "Hide a Photo in a Photo\nFirst, pick the cover image\nThen, pick the secret image",
+		fg = 'white',
+		bg = 'DodgerBlue4',
+		font = 'times 18 bold',
+		pady = 40,
+		padx = 79).pack()
+#encrypt button
+encryptButton = Button(f4,
+						text = 'Encrypt',
+						bg = 'azure',
+						fg = 'turquoise4',
+						width = 7,
+						command = lambda:hideImage())
+encryptButton.pack(padx = 9, side = LEFT)
 
 nextFrame(f1)
 
