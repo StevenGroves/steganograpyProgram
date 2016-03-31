@@ -163,6 +163,14 @@ encryptButton = Button(f4,
 						width = 7,
 						command = lambda:hideImage())
 encryptButton.pack(padx = 9, side = LEFT)
+#back button
+backButton = Button(f4,
+						text = 'Back',
+						bg = 'azure',
+						fg = 'turquoise4',
+						width = 7,
+						command = lambda:nextFrame(f2))
+backButton.pack(padx = 9, side = LEFT)
 
 nextFrame(f1)
 
