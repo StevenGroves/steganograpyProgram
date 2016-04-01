@@ -9,7 +9,9 @@ If you have nothing to decrypt, choose encrypt.
 		Encrypt an image into an image of your choice
 
 	Text Into Image:
-		<TBD>
+		First you will type in the text you want encrypted into the text box. 
+		When you hit the "Submit text" button, you choose what image you want to act as the cover image.
+		Then, the program saves your image as "withHiddenText.png"
 	Image Into Image:
 		When you hit the encrypt button, you will be prompted first for the cover image (image you want to be seen publicly), then for the secret image (image you want to hide)
 		Then, the program creates an image called hidden.png in whatever directory you forked into
@@ -18,43 +20,14 @@ If you have nothing to decrypt, choose encrypt.
 	Here you can choose to:
 		Decrypt text from an encrypted image
 		Decrypt an image from an encrypted image
-		See if an image has been encrypted with anything by our program
 
 	Text From Image:
-		<TBD>
+		First, you choose an image that you know has a message in it.
+		Then the program prints out that text.
 	Image From Image:
-		<TBD>
-	Test For Encryption:
-		<TBD>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		Choose an image that you know has another image hidden inside it.
+		The program will print out the secret image.
+		Keep in mind that the secret image will be recognizable, but will not be the same as when it was encrypted.
 
 3. File Descriptions:
 
@@ -68,7 +41,3 @@ If you have nothing to decrypt, choose encrypt.
 	secretImg.png - This is the resulting decrypted image after decrypting withHiddenImg.png.
 	withHiddenText.png - This image currently has an encrypted text message. This image file may be decrypted
 			with this decryption program to uncover the secret message.
-
-	
-	
->>>>>>> 98d710f0233305b7141be02d78150191ed890881
