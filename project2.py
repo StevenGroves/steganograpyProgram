@@ -362,39 +362,6 @@ mainMenuButton = Button(f9,
 						width = 12,
 						command = lambda:nextFrame(f1))
 mainMenuButton.pack(padx = 10, side = LEFT)
-#####################################################################
-#f4 - Encrypt picture from picture
-Label(f4,
-		text = "Hide a Photo in a Photo\nFirst, pick the cover image\nThen, pick the secret image",
-		fg = 'white',
-		bg = 'DodgerBlue4',
-		font = 'times 18 bold',
-		pady = 40,
-		padx = 79).pack()
-#encrypt button
-encryptButton = Button(f4,
-						text = 'Encrypt',
-						bg = 'azure',
-						fg = 'turquoise4',
-						width = 7,
-						command = lambda:hideImage())
-encryptButton.pack(padx = 9, side = LEFT)
-#back button
-backButton = Button(f4,
-						text = 'Back',
-						bg = 'azure',
-						fg = 'turquoise4',
-						width = 7,
-						command = lambda:nextFrame(f2))
-backButton.pack(padx = 9, side = LEFT)
-
-quitbutton = Button(f9,
-						text = 'Quit',
-						bg = 'turquoise4',
-						fg = 'azure',
-						width = 13,
-						command = lambda:root.quit())
-quitbutton.pack(padx = 50, side = RIGHT)
 ########################################################################
 #f10 - Decrypt photo from a picture
 Label(f10,
