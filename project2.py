@@ -96,6 +96,7 @@ def decodeString():
 				nextFrame(f9)
 				return msg
 			count += 1
+			
 
 root = Tk()
 
@@ -362,6 +363,14 @@ mainMenuButton = Button(f9,
 						width = 12,
 						command = lambda:nextFrame(f1))
 mainMenuButton.pack(padx = 10, side = LEFT)
+
+quitbutton = Button(f9,
+						text = 'Quit',
+						bg = 'turquoise4',
+						fg = 'azure',
+						width = 13,
+						command = lambda:root.quit())
+quitbutton.pack(padx = 50, side = RIGHT)
 ########################################################################
 #f10 - Decrypt photo from a picture
 Label(f10,
