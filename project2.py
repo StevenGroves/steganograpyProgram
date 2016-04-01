@@ -1,3 +1,502 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''Team #44, Steganogasaurus
 Members: Giselle Beltran
 		 Raquel Figueroa 
@@ -32,7 +531,7 @@ def hideImage(s = 4):
 			green = p[1] - (p[1] % s) + (s * q[1] / 255)
 			blue = p[2] - (p[2] % s) + (s * q[2] / 255)
 			data.putpixel((x,y), (red, green, blue))
-	data.save("hidden.png")
+	data.save("withHiddenImg.png")
 	data.show()
 	nextFrame(f7)
 
@@ -74,7 +573,7 @@ def hideString():
 				new_val = red
 			newimg.putpixel((x, y), (new_val, green, blue))
 			count += 1
-	newimg.save("hiddentext.png")
+	newimg.save("withHiddenText.png")
 	newimg.show()
 	nextFrame(f6)
 			
@@ -102,7 +601,7 @@ root = Tk()
 
 root.configure(bg = 'DodgerBlue4')
 root.title("Encrypt or Decrypt")
-root.geometry('{}x{}'.format(425, 300))
+root.geometry('{}x{}'.format(460, 300))
 
 f1 = Frame(root) # Main menu
 f2 = Frame(root) # Encrypt menu
@@ -128,7 +627,7 @@ Label(f1,
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 60,
-		padx = 70).pack()
+		padx = 100).pack()
 #encode button
 encodebutton = Button(f1,
 						text = 'Encrypt',
@@ -154,7 +653,7 @@ Label(f2,
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 50,
-		padx = 87).pack()
+		padx = 105).pack()
 #encode button
 encryptTextButton = Button(f2,
 						text = 'Hide Text\nin a Photo',
@@ -184,12 +683,12 @@ mainMenuButton.pack(padx = 10, side = LEFT)
 #######################################################################
 #f3 - Decrypt
 Label(f3, 
-		text = "Decrypt Options:\n\n1. Decrypt Text\n2. Decrypt a Photo\n3. Decrypt Unknown Media",
+		text = "Decrypt Options:\n\n1. Decrypt Text\n2. Decrypt a Photo",
 		fg = 'white',
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 40,
-		padx = 79).pack()
+		padx = 100).pack()
 #decrypt text button
 decryptTextButton = Button(f3,
 						text = 'Text',
@@ -224,7 +723,7 @@ Label(f4,
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 75,
-		padx = 81).pack()
+		padx = 100).pack()
 #encrypt button
 encryptButton = Button(f4,
 						text = 'Encrypt',
@@ -250,7 +749,7 @@ Label(f5,
 		bg = 'DodgerBlue4',
 		fg = 'white',
 		pady = 70,
-		padx = 98).pack()
+		padx = 120).pack()
 
 #Text box		
 e = Entry(f5, bd = 5)
@@ -262,7 +761,7 @@ encryptStringButton = Button(f5,
 						fg = 'azure',
 						width = 8,
 						command = lambda:hideString())
-encryptStringButton.pack(padx = 10, side = LEFT)
+encryptStringButton.pack(padx = 50, side = LEFT)
 		
 mainMenuButton = Button(f5,
 						text = 'Return to\nMain Menu',
@@ -270,7 +769,7 @@ mainMenuButton = Button(f5,
 						fg = 'red3',
 						width = 12,
 						command = lambda:nextFrame(f1))
-mainMenuButton.pack(padx = 10, side = RIGHT)
+mainMenuButton.pack(padx = 70, side = RIGHT)
 #######################################################################
 #f6 - Show successful text encrypting
 Label(f6, 
@@ -304,7 +803,7 @@ Label(f7,
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 80,
-		padx = 98).pack()
+		padx = 100).pack()
 
 mainMenuButton = Button(f7,
 						text = 'Return to\nMain Menu',
@@ -328,8 +827,8 @@ Label(f8,
 		fg = 'white',
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
-		pady = 95,
-		padx = 79).pack()
+		pady = 80,
+		padx = 100).pack()
 #Decrypt text from photo button
 decryptTextImage = Button(f8,
 						text = 'Choose Photo\nFrom a File',
@@ -354,7 +853,7 @@ Label(f9,
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
 		pady = 90,
-		padx = 100).pack()
+		padx = 110).pack()
 
 mainMenuButton = Button(f9,
 						text = 'Return to\nMain Menu',
@@ -378,8 +877,8 @@ Label(f10,
 		fg = 'white',
 		bg = 'DodgerBlue4',
 		font = 'times 18 bold',
-		pady = 95,
-		padx = 79).pack()
+		pady = 90,
+		padx = 90).pack()
 #Decrypt text from photo button
 decryptTextImage = Button(f10,
 						text = 'Choose Photo\nFrom a File',
